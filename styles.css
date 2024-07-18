@@ -1,0 +1,49 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    width: 81px;
+    height: 81px;
+    box-sizing: border-box;
+}
+
+#equals {
+   width: 165px; 
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    width: 400px;
+    height: 700px;
+}
+
+.display {
+    background-color: grey;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+/*  this is the class for the number buttons container (1,2,3,4,5...0,=) */
+.num-bttn-cont {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+}
+
+/* this is the class for the operator button container (+, -, /,*)*/
+.operator-bttn-cont {
+    display: flex;
+    flex-direction: column;
+    height: 339px;
+    gap: 5px;
+}
