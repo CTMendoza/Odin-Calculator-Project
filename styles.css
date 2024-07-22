@@ -8,6 +8,7 @@ button {
     width: 81px;
     height: 81px;
     box-sizing: border-box;
+    border-radius: 50px;
 }
 
 #equals {
@@ -19,14 +20,25 @@ button {
     flex-direction: column;
     background-color: black;
     width: 400px;
-    height: 471px;
+}
+
+.display-container {
+    text-align: center;
+    word-wrap: break-word;
+    word-break: break-all; 
+    display: flex;
+    justify-content: center;
 }
 
 .display {
     background-color: grey;
-    height: 84px;
-    text-align: center;
     font-size: 50px;
+    min-height: 64px;
+    width: 400px;
+    margin: 19px;
+    padding: 11px;
+    text-align: end;
+    border-radius: 25px;
 }
 
 .button-container {

@@ -31,3 +31,19 @@ function operate (firstNumber, operator, secondNumber) {
             return divide(firstNumber, secondNumber);
     }
 }
+//create a function that will populate the display when the user clicks one of the number buttons. Store the display values in the firstNumber and secondNumber variables above
+const numberButtons = document.querySelectorAll('.num-bttn');
+const displayElement = document.querySelector('.display');
+numberButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        const value = button.textContent;
+        displayElement.textContent += value;
+        firstNumber = displayElement.textContent
+        console.log(firstNumber)
+    })
+    
+})
+
+
+
+console.log(firstNumber)
