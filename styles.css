@@ -19,18 +19,21 @@ button {
     flex-direction: column;
     background-color: black;
     width: 400px;
-    height: 700px;
+    height: 471px;
 }
 
 .display {
     background-color: grey;
+    height: 84px;
+    text-align: center;
+    font-size: 50px;
 }
 
 .button-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin: 20px;
 }
 /*  this is the class for the number buttons container (1,2,3,4,5...0,=) */
 .num-bttn-cont {
