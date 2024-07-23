@@ -31,6 +31,10 @@ function operate (firstNumber, operator, secondNumber) {
             return divide(firstNumber, secondNumber);
     }
 }
+
+// displayValue will hold the value inside the display element 
+let displayValue;
+
 //create a function that will populate the display when the user clicks one of the number buttons. Store the display values in the firstNumber and secondNumber variables above
 const numberButtons = document.querySelectorAll('.num-bttn');
 const displayElement = document.querySelector('.display');
@@ -38,12 +42,21 @@ numberButtons.forEach((button) => {
     button.addEventListener("click", () => {
         const value = button.textContent;
         displayElement.textContent += value;
-        firstNumber = displayElement.textContent
-        console.log(firstNumber)
+        displayValue = displayElement.textContent;
+        console.log(displayValue)
     })
-    
 })
 
+// create a function that will populate the display when the user clicks one of the operator buttons. Stores display value within displayValue.
+// displayValue should hold a string representing and operation if.e '1+1' or '2000*3000'
+    
+const operatorButtons = document.querySelectorAll('.operator');
+operatorButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        const value = button.textContent;
+        displayElement.textContent += value;
+        displayValue = displayElement.textContent;
+        console.log(displayValue)
+    })
+})
 
-
-console.log(firstNumber)
