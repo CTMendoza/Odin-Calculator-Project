@@ -48,7 +48,7 @@ numberButtons.forEach((button) => {
 })
 
 // create a function that will populate the display when the user clicks one of the operator buttons. Stores display value within displayValue.
-// displayValue should hold a string representing and operation if.e '1+1' or '2000*3000'
+// displayValue should hold a string representing and operation i.e '1+1' or '2000*3000'
     
 const operatorButtons = document.querySelectorAll('.operator');
 operatorButtons.forEach((button) => {
@@ -60,3 +60,13 @@ operatorButtons.forEach((button) => {
     })
 })
 
+// equal button takes displayValue and calculates the assigned value and returns a new displayValue of the completed operation
+const equalButton = document.querySelector('#equals')
+equalButton.addEventListener("click", () => {
+    const arr = displayValue.split('');
+    console.log(arr);
+    displayElement.textContent = '';
+    displayValue = undefined;
+    console.log('displayValue after equal button pressed ', displayValue);
+} 
+)
