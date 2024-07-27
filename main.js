@@ -64,9 +64,21 @@ operatorButtons.forEach((button) => {
 const equalButton = document.querySelector('#equals')
 equalButton.addEventListener("click", () => {
     const arr = displayValue.split('');
-    console.log(arr);
+    // console.log('displayValue split, ', arr);
+    const combinedString = arr.join('')
+    // console.log('array joined, ', combinedString);
+    const parts = combinedString.split(/([-+*/])/);
+    // console.log(' array split by operator', parts)
     displayElement.textContent = '';
     displayValue = undefined;
-    console.log('displayValue after equal button pressed ', displayValue);
+    // console.log('displayValue after equal button pressed ', displayValue);
+    firstNumber = Number(parts[0]);
+    operator = parts[1];
+    secondNumber = Number(parts[2]);
+    // console.log(operate(firstNumber, operator, secondNumber));
+    displayElement.textContent = `${operate(firstNumber, operator, secondNumber)}`
+    displayValue = displayElement.textContent
+    // console.log('array after calculation ;', arr)
+    // console.log('displayValue after calculation, ', displayValue);
 } 
 )
