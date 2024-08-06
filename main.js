@@ -32,18 +32,29 @@ function operate (firstNumber, operator, secondNumber) {
     }
 }
 
-// displayValue will hold the value inside the display element 
-let displayValue;
-
+let arr;
 //create a function that will populate the display when the user clicks one of the number buttons. Store the display values in the firstNumber and secondNumber variables above
 const numberButtons = document.querySelectorAll('.num-bttn');
 const displayElement = document.querySelector('.display');
+// displayValue will hold the value inside the display element. By default it is zero.
+let displayValue = displayElement.textContent;
+console.log(displayValue);
 numberButtons.forEach((button) => {
     button.addEventListener("click", () => {
-        const value = button.textContent;
+        let value = button.textContent;
+        // console.log(value)
+        if(displayElement.textContent === '0') {
+            displayElement.textContent = value;
+            displayValue = displayElement.textContent;
+            // console.log(displayElement)
+            // console.log(typeof displayValue)
+            // console.log(value)
+             return;
+        }
         displayElement.textContent += value;
+        // console.log(displayValue)
         displayValue = displayElement.textContent;
-        console.log(displayValue)
+        // console.log(displayValue)
     })
 })
 
@@ -53,32 +64,42 @@ numberButtons.forEach((button) => {
 const operatorButtons = document.querySelectorAll('.operator');
 operatorButtons.forEach((button) => {
     button.addEventListener("click", () => {
-        const value = button.textContent;
+        let value = button.textContent;
         displayElement.textContent += value;
         displayValue = displayElement.textContent;
         console.log(displayValue)
     })
 })
+substrings = ["+", "-","/","*"]
+
 
 // equal button takes displayValue and calculates the assigned value and returns a new displayValue of the completed operation
 const equalButton = document.querySelector('#equals')
 equalButton.addEventListener("click", () => {
-    const arr = displayValue.split('');
-    // console.log('displayValue split, ', arr);
+    arr = displayValue.split('');
+    console.log('displayValue split, ', arr);
     const combinedString = arr.join('')
-    // console.log('array joined, ', combinedString);
+    console.log('array joined, ', combinedString);
     const parts = combinedString.split(/([-+*/])/);
-    // console.log(' array split by operator', parts)
-    displayElement.textContent = '';
-    displayValue = undefined;
-    // console.log('displayValue after equal button pressed ', displayValue);
+    console.log(' array split by operator', parts)
+    console.log('displayValue after equal button pressed ', displayValue);
     firstNumber = Number(parts[0]);
     operator = parts[1];
     secondNumber = Number(parts[2]);
-    // console.log(operate(firstNumber, operator, secondNumber));
+    console.log(operate(firstNumber, operator, secondNumber));
     displayElement.textContent = `${operate(firstNumber, operator, secondNumber)}`
     displayValue = displayElement.textContent
-    // console.log('array after calculation ;', arr)
-    // console.log('displayValue after calculation, ', displayValue);
+    console.log('array after calculation ;', arr);
+    console.log('displayValue after calculation, ', displayValue);
 } 
 )
+
+// clear button should clear the displayElement and displayValue values
+const clearButton =  document.querySelector('#clear');
+clearButton.addEventListener("click", () => {
+    displayElement.textContent = '0';
+    displayValue = '';
+    firstNumber = '';
+    secondNumber = '';
+    operator= '';
+})
