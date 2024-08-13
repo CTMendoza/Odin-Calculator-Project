@@ -17,6 +17,13 @@ let firstNumber = '';
 let secondNumber = '';
 let operator= null;
 
+function checkEnableEqualButton() {
+    if (firstNumber !== '' && secondNumber !== '' && operator !== null) {
+        equalButton.disabled = false;
+    } else {
+        equalButton.disabled = true;
+    }
+}
 
 //create a function called operate which takes two numbers and an operator then calls one of the function operations (add, subtract, multiply, divide) on the numbers
 function operate (firstNumber, operator, secondNumber) {
@@ -28,7 +35,9 @@ function operate (firstNumber, operator, secondNumber) {
         case "*":
             return multiply(firstNumber, secondNumber);
         case "/":
-            return divide(firstNumber, secondNumber);
+            if(secondNumber === 0) {
+                return 'wrong!'
+            } else return divide(firstNumber, secondNumber);
     }
 }
 
@@ -75,7 +84,7 @@ numberButtons.forEach((button) => {
         console.log('secondNumber: ', secondNumber)
         displayElement.textContent = secondNumber;
        }
-
+       checkEnableEqualButton();
     })
 })
 
@@ -87,6 +96,7 @@ operatorButtons.forEach((button) => {
     button.addEventListener("click", () => {
         operator = button.textContent;
         console.log('operator is: ', operator);
+        checkEnableEqualButton();
     })
 })
 
@@ -118,7 +128,8 @@ equalButton.addEventListener("click", () => {
     displayElement.textContent = `${operate(Number(firstNumber), operator, Number(secondNumber))}`
     firstNumber = displayElement.textContent;
     secondNumber = '';
-    operator = null;    
+    operator = null;
+    checkEnableEqualButton();    
     console.log(`firstNumber after solution should be the solution on display like this ${firstNumber}`);
     console.log(`secondNumber should be empty string after solution like this  ${secondNumber}`);
     console.log(`operator should be reset back to null after solution like this ${operator}`);
@@ -132,4 +143,8 @@ clearButton.addEventListener("click", () => {
     firstNumber = '';
     secondNumber = '';
     operator= null;
+    checkEnableEqualButton();
 })
+
+checkEnableEqualButton();
+
